@@ -1,0 +1,27 @@
+type Vehicle {
+	id: ID!,
+	type: String,
+	modelCode: String,
+	brandName: String,
+	launchDate: String
+}
+
+type Transaction {
+	id: ID!,
+	accountNo: String,
+	amount: String,
+	description: String,
+	trxDate: String,
+	trxTime: String,
+	customerId: String
+}
+
+type Query {
+	vehicles(count: Int):[Vehicle]
+	vehicle(id: ID):Vehicle
+}
+
+type Mutation {
+	createVehicle(type: String!, modelCode: String!, brandName: String, launchDate: String):Vehicle
+	saveTransaction(accountNo: Long, amount: String, description: String, trxDate: String, trxTime: String, customerId: String):Transaction
+}
